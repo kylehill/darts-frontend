@@ -1,0 +1,23 @@
+@import "_colors";
+
+.cricket-menu {
+  padding: 16px;
+}
+
+.cricket-menu-variants {
+  font-size: 20px;
+  border-bottom: solid 2px $background-white;
+}
+
+.cricket-menu-variants p {
+  padding: 12px 0;
+}
+
+.cricket-menu a {
+  margin: 20px 0;
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  border-bottom: solid 1px $text-pink;
+}

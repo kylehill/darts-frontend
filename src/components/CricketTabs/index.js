@@ -3,6 +3,7 @@ import React from "react";
 import HeaderTab from "components/HeaderTab";
 import CricketLog from "components/CricketLog";
 import CricketStats from "components/CricketStats";
+import CricketMenu from "components/CricketMenu";
 
 import "./index.scss";
 
@@ -12,7 +13,7 @@ const VisibleContent = ({ currentPane, state }) => {
       return <CricketLog state={state} />;
 
     case 2:
-      return <div>menu</div>;
+      return <CricketMenu state={state} />;
 
     case 0:
     default:

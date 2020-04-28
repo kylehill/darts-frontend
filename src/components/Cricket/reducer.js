@@ -10,6 +10,7 @@ const reducer = (state, action) => {
       return actions.clickDartButton(state, action);
     }
 
+    case "key_backspace":
     case "click_back": {
       if (state.currentTurn.length > 0) {
         return actions.eraseDart(state, action);
@@ -18,6 +19,7 @@ const reducer = (state, action) => {
       return actions.undoTurn(state, action);
     }
 
+    case "key_enter":
     case "click_next": {
       if (state.winner !== null) {
         return actions.nextLeg(state, action);

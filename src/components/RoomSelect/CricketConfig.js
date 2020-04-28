@@ -12,7 +12,6 @@ const CricketConfig = ({ variants, setVariant }) => {
         optionsObject={{
           standard: "Standard Cricket",
           "no-points": "Cricket, No Points",
-          test: "Test Match Cricket",
         }}
       />
       {", with the players organized as "}

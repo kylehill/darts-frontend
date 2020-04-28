@@ -17,6 +17,32 @@ const Cricket = (props) => {
     props.state && _wrappedDispatch({ type: "update_state", state: props.state });
   }, [props.state]);
 
+  React.useEffect(() => {
+    window.document.title = `${state.players[0].name} ${state.legs[0]}-${state.legs[1]} ${state.players[1].name}`;
+  }, [state.players, state.legs]);
+
+  React.useEffect(() => {
+    const keyListener = (e) => {
+      switch (e.code) {
+        case "Enter":
+          e.preventDefault();
+          dispatch({ type: "key_enter" });
+          return;
+
+        case "Backspace":
+          dispatch({ type: "key_backspace" });
+          return;
+
+        default:
+          return;
+      }
+    };
+
+    window.addEventListener("keydown", keyListener);
+
+    return () => window.removeEventListener("keydown", keyListener);
+  });
+
   const dispatch = (action) => {
     if (isSpectating) {
       return;
@@ -28,6 +54,7 @@ const Cricket = (props) => {
   };
 
   const clickDart = (dart) => {
+    console.log("click Dart");
     dispatch({ type: "click_dart", dart });
   };
 

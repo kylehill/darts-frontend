@@ -12,7 +12,7 @@ const addStats = (playerStats, turn) => {
   }, 0);
 
   const turnHits = turn.reduce((mem, dart) => {
-    if (dart.miss) {
+    if (dart.miss || dart.eM === 0) {
       return mem;
     }
     return mem + 1;

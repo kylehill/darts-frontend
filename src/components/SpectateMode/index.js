@@ -7,15 +7,17 @@ const SpectateMode = ({ spectating, clickChange }) => {
     <div className="spectate-mode">
       {spectating && (
         <div className="spectate-copy">
-          You are currently <strong>spectating</strong>.<br />
-          You can't change the game state for other people.
+          You are currently <strong>spectating</strong>.
+          <br />
+          Click the button to the right to switch to scoring mode.
         </div>
       )}
 
       {!spectating && (
         <div className="spectate-copy">
-          You are currently <strong>scoring</strong>.<br />
-          Changing the game state will change it for everyone.
+          You are currently <strong>scoring</strong> and can mark the scoreboard.
+          <br />
+          Click the button to the right to switch to spectate mode.
         </div>
       )}
       <button
