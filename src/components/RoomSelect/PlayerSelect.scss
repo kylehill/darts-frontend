@@ -1,0 +1,56 @@
+@import "_colors";
+
+.setup-players {
+  margin-top: 16px;
+  border-bottom: solid 2px $background-white-contrast;
+}
+
+.setup-player {
+  height: 45px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+  padding: 0 10px;
+  position: relative;
+  border: solid 1px $background-white-contrast;
+
+  input {
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+    padding: 4px;
+    position: absolute;
+    width: 50%;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 0px;
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom: solid 1px $background-white-contrast;
+
+    &:focus {
+      background: $background-white;
+      color: black;
+    }
+  }
+
+  button {
+    background: transparent;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+    border: none;
+    box-shadow: none;
+    color: white;
+    font-size: 18px;
+  }
+
+  &-red {
+    background: $team-red;
+  }
+
+  &-blue {
+    background: $team-blue;
+  }
+}

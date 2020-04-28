@@ -1,0 +1,128 @@
+@import "_colors";
+@import "_dimensions";
+
+$cricket-sector-height: 54px;
+
+.cricket-actions {
+  display: inline-block;
+  width: 100%;
+}
+
+.cricket-sector {
+  height: $cricket-sector-height;
+  line-height: $cricket-sector-height;
+  font-size: 32px;
+  color: $background-white;
+  background: $background-dark-contrast;
+  border-bottom: solid 1px $background-white-contrast;
+
+  &-close {
+    color: $background-white-contrast;
+    background: $background-dark;
+  }
+}
+
+.cricket-sector-label {
+  width: 20%;
+  text-align: center;
+  display: inline-block;
+  border-right: solid 1px $background-white-contrast;
+}
+
+.cricket-sector-buttons {
+  display: inline-block;
+  width: 80%;
+  text-align: center;
+  line-height: $cricket-sector-height;
+  position: relative;
+}
+
+.cricket-button {
+  padding: 5px 0;
+  width: 20%;
+  margin: 6px 5%;
+  font-size: 22px;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+
+  &-single {
+    background: $button-blue;
+    border-top: solid 1px $button-blue-light;
+    border-left: solid 1px $button-blue-light;
+    border-bottom: solid 1px $button-blue-dark;
+    border-right: solid 1px $button-blue-dark;
+  }
+
+  &-double {
+    background: $button-green;
+    border-top: solid 1px $button-green-light;
+    border-left: solid 1px $button-green-light;
+    border-bottom: solid 1px $button-green-dark;
+    border-right: solid 1px $button-green-dark;
+  }
+
+  &-treble {
+    background: $button-red;
+    border-top: solid 1px $button-red-light;
+    border-left: solid 1px $button-red-light;
+    border-bottom: solid 1px $button-red-dark;
+    border-right: solid 1px $button-red-dark;
+  }
+}
+
+.cricket-current {
+  background: $background-dark-contrast;
+  color: $background-white;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.cricket-current-dart {
+  height: 50px;
+  width: 60px;
+  line-height: 50px;
+  border: solid 1px $background-white;
+  text-align: center;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0px 5px;
+  vertical-align: top;
+
+  &-1 {
+    background: $button-blue;
+  }
+
+  &-2 {
+    background: $button-green;
+  }
+
+  &-3 {
+    background: $button-red;
+  }
+
+  @media (max-width: $large-breakpoint) {
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+  }
+}
+
+.cricket-current-button {
+  width: 80px;
+  height: 49px;
+  font-size: 22px;
+  vertical-align: top;
+  margin: 0 20px;
+}
+
+.cricket-current-next {
+  background: $button-next;
+  color: white;
+}
+
+.cricket-current-back {
+  background: $accent-orange;
+  color: white;
+}

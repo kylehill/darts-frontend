@@ -1,0 +1,10 @@
+@import "_colors";
+
+.config-dropdown {
+  color: $text-pink;
+  font-size: inherit;
+  border: none;
+  border-bottom: solid 1px $text-pink;
+  border-radius: 0;
+  appearance: none;
+}

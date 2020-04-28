@@ -1,0 +1,36 @@
+@import "_colors";
+
+$stripe-width: 20px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s;
+}
+
+body {
+  min-height: 100vh;
+  background: repeating-linear-gradient(
+    30deg,
+    $background-dark,
+    $background-dark $stripe-width,
+    $background-dark-contrast $stripe-width,
+    $background-dark-contrast ($stripe-width * 2)
+  );
+}
+
+button {
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 2px 2px $background-white-contrast;
+
+  &[disabled] {
+    cursor: not-allowed;
+    font-weight: 400;
+    box-shadow: none;
+  }
+}

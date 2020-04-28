@@ -1,0 +1,51 @@
+@import "_colors";
+@import "_dimensions";
+
+.setup-container {
+  padding: 16px;
+  background: white;
+
+  &-cricket {
+    border: solid 3px $button-red;
+  }
+
+  &-x01 {
+    border: solid 3px $button-blue;
+  }
+
+  &-clocky {
+    border: solid 3px $button-green;
+  }
+}
+
+.setup-config {
+  padding-bottom: 16px;
+  border-bottom: solid 2px $background-white-contrast;
+  line-height: 1.5;
+}
+
+.setup-create {
+  font-size: 18px;
+  line-height: 42px;
+  padding: 0 10px;
+  background: $button-next;
+  color: white;
+  vertical-align: top;
+  margin: 0px auto;
+  display: inline-block;
+
+  &[disabled] {
+    background: $button-next-disbled;
+    color: #aaa;
+  }
+}
+
+.setup-players-create {
+  background: $background-white;
+  font-size: 16px;
+  border: solid 2px $background-white-contrast;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  padding: 8px;
+  height: 45px;
+}
