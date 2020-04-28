@@ -1,0 +1,28 @@
+@import "_colors";
+
+.spectate-mode {
+  color: $background-white;
+  font-size: 18px;
+  text-align: right;
+}
+
+.spectate-copy {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
+}
+
+.spectate-button {
+  display: inline-block;
+  vertical-align: top;
+  width: 70px;
+  font-size: 32px;
+  background: #f0ad4e;
+  border: solid 2px #eea236;
+  border-radius: 4px;
+
+  &-spectating {
+    background: #5bc0de;
+    border: solid 2px #46b8da;
+  }
+}

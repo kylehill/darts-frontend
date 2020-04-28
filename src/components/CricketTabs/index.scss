@@ -1,0 +1,10 @@
+@import "_colors";
+
+.tab-content {
+  background: $background-dark-contrast;
+  position: relative;
+  color: white;
+  border: solid 1px $background-white-contrast;
+  top: -1px;
+  z-index: 1;
+}

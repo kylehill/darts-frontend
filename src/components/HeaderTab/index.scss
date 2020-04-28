@@ -1,0 +1,21 @@
+@import "_colors";
+
+.tab {
+  background: #444;
+  color: $background-white;
+  display: inline-block;
+  font-size: 20px;
+  padding: 5px 20px;
+  border-radius: 3px 3px 0 0;
+  margin-right: 6px;
+  border: solid 1px $background-white-contrast;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+
+  &-active {
+    border-bottom: solid 1px $background-dark-contrast;
+    background: $background-dark-contrast;
+    cursor: default;
+  }
+}

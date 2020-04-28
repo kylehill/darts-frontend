@@ -1,0 +1,38 @@
+@import "_dimensions";
+
+.cricket-spectate-container {
+  margin: 16px 8px;
+}
+
+.cricket-scoreboard-container {
+  margin-bottom: 16px;
+}
+
+.cricket-actions-container {
+  width: calc(50% - 8px);
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 16px;
+
+  @media (max-width: $large-breakpoint) {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+.cricket-tabs-container {
+  width: calc(50% - 8px);
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 16px;
+
+  @media (max-width: $large-breakpoint) {
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
