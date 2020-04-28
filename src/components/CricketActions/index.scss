@@ -73,7 +73,7 @@ $cricket-sector-height: 54px;
 }
 
 .cricket-current {
-  background: $background-dark-contrast;
+  background: $background-textured-gray;
   color: $background-white;
   padding-top: 30px;
   padding-bottom: 15px;
@@ -111,6 +111,7 @@ $cricket-sector-height: 54px;
   font-weight: 400;
   margin: 0px 5px;
   vertical-align: top;
+  background: $background-dark-contrast;
 
   &-1 {
     background: $button-blue;
@@ -137,6 +138,7 @@ $cricket-sector-height: 54px;
   font-size: 20px;
   vertical-align: top;
   margin: 0 10px;
+  border: solid 1px $background-white;
 
   @media (max-width: $large-breakpoint) {
     width: 50px;
