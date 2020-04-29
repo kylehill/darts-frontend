@@ -19,6 +19,10 @@ const cellText = (marks, sector) => {
   }
 };
 
+const CricketName = ({ value, changeName }) => {
+  return <input className="cricket-name" value={value} onChange={(e) => changeName(e.target.value)} />;
+};
+
 const CricketMarkCell = ({ marks, sector }) => {
   const text = cellText(marks, sector);
   return (
@@ -32,12 +36,13 @@ const CricketMarkCell = ({ marks, sector }) => {
   );
 };
 
-const CricketPlayer = ({ name, marks, points, legs, firstThrow, trailing, winner }) => {
+const CricketPlayer = ({ changeName, name, marks, points, legs, firstThrow, trailing, winner }) => {
   return (
     <div className="cricket-player">
       <div className={`cricket-cell cricket-nameplate ${winner ? "cricket-winner" : ""}`}>
-        <div className="cricket-name">{name}</div>
-        {firstThrow && <div className="cricket-leader"></div>}
+        {changeName && <CricketName changeName={changeName} value={name} />}
+        {!changeName && name}
+        {firstThrow && <div className="cricket-leader" title="Throwing first this leg"></div>}
       </div>
       <div className="cricket-cell cricket-legs">{legs}</div>
       {marks.map((marks, idx) => {

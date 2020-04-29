@@ -19,6 +19,7 @@ const CricketActions = ({ state, clickBack, clickNext, clickDart, spectating }) 
 
       <CurrentTurn
         spectating={spectating}
+        winner={state.winner}
         throwerTeam={state.currentThrow}
         throwerName={state.players[state.currentThrow].name}
         clickBack={clickBack}

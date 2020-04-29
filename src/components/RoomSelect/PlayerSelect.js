@@ -2,7 +2,7 @@ import React from "react";
 
 import "./PlayerSelect.scss";
 
-const Player = ({ color, player, position, updatePlayer, removePlayer }) => {
+const Player = ({ color, player, position, minPlayers, updatePlayer, removePlayer }) => {
   return (
     <div className={`setup-player setup-player-${color}`}>
       <input
@@ -12,7 +12,7 @@ const Player = ({ color, player, position, updatePlayer, removePlayer }) => {
           updatePlayer(position, { ...player, name: e.target.value });
         }}
       />
-      {position > 0 && (
+      {position >= minPlayers && (
         <button
           className="setup-player-remove"
           onClick={() => {
@@ -82,6 +82,7 @@ const PlayerSelect = ({ players, setPlayers, doubles, minPlayers, maxPlayers }) 
             key={idx}
             player={p}
             position={idx}
+            minPlayers={minPlayers}
             updatePlayer={updatePlayer}
             removePlayer={removePlayer}
           />

@@ -17,10 +17,10 @@ const gameConfig = (game, variants, setVariant) => {
   }
 };
 
-const initializeState = (game, setupState) => {
+const initializeState = (game, setupState, roomCode) => {
   switch (game) {
     case "cricket":
-      return initializeCricket(setupState);
+      return initializeCricket(setupState, roomCode);
 
     default:
       return null;
@@ -59,7 +59,7 @@ const GameSetup = ({ game, checkRoom, roomStatus, clearGame, createRoom }) => {
   };
 
   const clickCreateGame = () => {
-    const state = initializeState(game, setupState);
+    const state = initializeState(game, setupState, roomStatus.checking);
     createRoom(roomStatus.checking, state);
   };
 

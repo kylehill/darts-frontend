@@ -7,13 +7,15 @@ import CricketMenu from "components/CricketMenu";
 
 import "./index.scss";
 
-const VisibleContent = ({ currentPane, state }) => {
+const VisibleContent = (props) => {
+  const { currentPane, state } = props;
+
   switch (currentPane) {
     case 1:
       return <CricketLog state={state} />;
 
     case 2:
-      return <CricketMenu state={state} />;
+      return <CricketMenu {...props} />;
 
     case 0:
     default:
@@ -21,8 +23,8 @@ const VisibleContent = ({ currentPane, state }) => {
   }
 };
 
-const CricketTabs = ({ state }) => {
-  const [currentPane, setCurrentPane] = React.useState(0);
+const CricketTabs = (props) => {
+  const [currentPane, setCurrentPane] = React.useState(2);
   const tabTitles = ["Stats", "Log", "Menu"];
 
   return (
@@ -35,7 +37,7 @@ const CricketTabs = ({ state }) => {
         })}
       </div>
       <div className="tab-content">
-        <VisibleContent currentPane={currentPane} state={state} />
+        <VisibleContent currentPane={currentPane} {...props} />
       </div>
     </div>
   );

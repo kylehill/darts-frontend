@@ -11,5 +11,14 @@
     padding: 8px;
     width: 50%;
     margin-right: 16px;
+    vertical-align: top;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px 6px;
+    vertical-align: top;
+    background: $accent-blue;
+    color: white;
   }
 }

@@ -4,6 +4,7 @@ import Cricket from "components/Cricket";
 const ActiveGameDisplay = ({ state, updateState }) => {
   switch (state.game) {
     case "cricket":
+    default:
       return <Cricket state={state} updateState={updateState} />;
   }
 };

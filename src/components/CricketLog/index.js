@@ -15,12 +15,13 @@ const PriorLeg = ({ number, winner, isBreak, scores }) => {
   );
 };
 
-const PriorTurn = ({ darts, name, round }) => {
+const PriorTurn = ({ darts, name, round, color }) => {
   const marks = darts.reduce((mem, dart) => mem + dart.eM, 0);
   const bulls = darts.filter((dart) => dart.sector === 6).reduce((mem, dart) => mem + dart.eM, 0);
 
   return (
     <div className="cricket-log-turn">
+      <div className={`cricket-log-color cricket-log-color-${color}`}></div>
       <div className="cricket-log-round">
         {name}, Turn {round}
       </div>
@@ -29,9 +30,13 @@ const PriorTurn = ({ darts, name, round }) => {
       <div className="cricket-log-darts">
         {darts.map((dart, idx) => {
           if (dart.miss) {
-            return <div className="cricket-log-dart cricket-log-dart-miss"></div>;
+            return <div key={idx} className="cricket-log-dart cricket-log-dart-miss"></div>;
           }
-          return <div className={`cricket-log-dart cricket-log-dart-${dart.multiple}`}>{dart.display}</div>;
+          return (
+            <div key={idx} className={`cricket-log-dart cricket-log-dart-${dart.multiple}`}>
+              {dart.display}
+            </div>
+          );
         })}
       </div>
     </div>
@@ -45,12 +50,15 @@ const CricketLog = ({ state }) => {
   return (
     <div className="cricket-log">
       {turns.map((turn, idx) => {
+        const team = (state.firstThrow + (turns.length - idx + 1)) % 2;
+
         return (
           <PriorTurn
             key={idx}
             round={Math.ceil((turns.length - idx) / 2)}
             darts={turn}
-            name={state.players[(state.firstThrow + idx) % 2].name}
+            name={state.players[team].name}
+            color={team === 0 ? "red" : "blue"}
           />
         );
       })}

@@ -2,6 +2,8 @@
 
 .cricket-menu {
   padding: 16px;
+  max-width: 420px;
+  overflow-y: scroll;
 }
 
 .cricket-menu-variants {
@@ -20,4 +22,22 @@
   font-size: 20px;
   text-decoration: none;
   border-bottom: solid 1px $text-pink;
+}
+
+.danger-option {
+  padding: 18px;
+  margin: 10px 0;
+  border: dashed 1px $background-white;
+}
+
+.danger-description {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.danger-title {
+  background: $accent-maroon;
+  color: white;
+  padding: 4px 8px;
+  font-size: 14px;
 }

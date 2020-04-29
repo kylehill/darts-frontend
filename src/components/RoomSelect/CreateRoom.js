@@ -28,6 +28,33 @@ const CreateRoom = ({ checkRoom, roomStatus }) => {
           checkRoom(code);
         }}
       />
+      <button
+        onClick={() => {
+          const code = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)
+            .toString(34)
+            .toUpperCase()
+            .split("")
+            .reverse()
+            .filter((x) => isNaN(x))
+            .slice(0, 4)
+            .map((c) => {
+              switch (c) {
+                case "I":
+                  return "Y";
+                case "O":
+                  return "Z";
+              }
+
+              return c;
+            })
+            .join("");
+
+          setRoomCode(code);
+          checkRoom(code);
+        }}
+      >
+        Random Code
+      </button>
       {createRoomErrorText(status) && <div className="error-text">{createRoomErrorText(status)}</div>}
     </div>
   );

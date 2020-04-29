@@ -1,9 +1,4 @@
-const newScores = () => {
-  return [
-    { points: 0, marks: [0, 0, 0, 0, 0, 0, 0] },
-    { points: 0, marks: [0, 0, 0, 0, 0, 0, 0] },
-  ];
-};
+import { newScores } from "./common";
 
 export default (state, action) => {
   const legs = state.legs.map((legsWon, idx) => {

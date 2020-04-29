@@ -18,8 +18,8 @@ const Cricket = (props) => {
   }, [props.state]);
 
   React.useEffect(() => {
-    window.document.title = `${state.players[0].name} ${state.legs[0]}-${state.legs[1]} ${state.players[1].name}`;
-  }, [state.players, state.legs]);
+    window.document.title = `[${state.roomCode}] ${state.players[0].name} ${state.legs[0]}-${state.legs[1]} ${state.players[1].name}`;
+  }, [state.roomCode, state.players, state.legs]);
 
   React.useEffect(() => {
     const keyListener = (e) => {
@@ -49,46 +49,43 @@ const Cricket = (props) => {
     }
 
     const newState = reducerFn(state, action);
+    if (!newState) {
+      return;
+    }
+
     props.updateState(newState);
     _wrappedDispatch(action);
-  };
-
-  const clickDart = (dart) => {
-    console.log("click Dart");
-    dispatch({ type: "click_dart", dart });
-  };
-
-  const clickBack = () => {
-    dispatch({ type: "click_back" });
-  };
-
-  const clickNext = () => {
-    dispatch({ type: "click_next" });
-  };
-
-  const clickSpectate = () => {
-    setIsSpectating(!isSpectating);
   };
 
   return (
     <div className="cricket-container">
       <div className="cricket-spectate-container">
-        <SpectateMode spectating={isSpectating} clickChange={clickSpectate} />
+        <SpectateMode spectating={isSpectating} clickChange={() => setIsSpectating(!isSpectating)} />
       </div>
       <div className="cricket-scoreboard-container">
-        <CricketScoreboard state={state} />
+        <CricketScoreboard
+          spectating={isSpectating}
+          state={state}
+          changeName={(name, player) => dispatch({ type: "change_name", name, player })}
+        />
       </div>
       <div className="cricket-actions-container">
         <CricketActions
           spectating={isSpectating}
           state={state}
-          clickDart={clickDart}
-          clickBack={clickBack}
-          clickNext={clickNext}
+          clickDart={(dart) => dispatch({ type: "click_dart", dart })}
+          clickBack={() => dispatch({ type: "click_back" })}
+          clickNext={() => dispatch({ type: "click_next" })}
         />
       </div>
       <div className="cricket-tabs-container">
-        <CricketTabs state={state} />
+        <CricketTabs
+          state={state}
+          spectating={isSpectating}
+          changeFirstThrow={(firstThrow) => dispatch({ type: "click_change_first_throw", firstThrow })}
+          restartLeg={() => dispatch({ type: "click_restart_leg" })}
+          restartMatch={() => dispatch({ type: "click_restart_match" })}
+        />
       </div>
     </div>
   );

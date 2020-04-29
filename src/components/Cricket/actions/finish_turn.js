@@ -1,4 +1,4 @@
-import { calculateScore } from "./common";
+import { calculateScore, calculateStats } from "./common";
 
 const addStats = (playerStats, turn) => {
   let { darts, hits, marks } = playerStats;
@@ -23,17 +23,7 @@ const addStats = (playerStats, turn) => {
   hits += turnHits;
   turns[turnMarks] += 1;
 
-  const mpr = (marks / darts) * 3;
-  const hitRate = hits / darts;
-
-  return {
-    darts,
-    marks,
-    hits,
-    turns,
-    mpr,
-    hitRate,
-  };
+  return calculateStats({ darts, marks, hits, turns });
 };
 
 const checkWinner = (format, scores) => {

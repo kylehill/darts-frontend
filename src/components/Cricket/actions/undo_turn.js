@@ -1,40 +1,4 @@
-import { calculateScore } from "./common";
-
-const undoStats = (playerStats, turn) => {
-  let { darts, hits, marks } = playerStats;
-  const turns = [...playerStats.turns];
-
-  const turnMarks = turn.reduce((mem, dart) => {
-    if (dart.miss) {
-      return mem;
-    }
-    return mem + dart.eM;
-  }, 0);
-
-  const turnHits = turn.reduce((mem, dart) => {
-    if (dart.miss) {
-      return mem;
-    }
-    return mem + 1;
-  }, 0);
-
-  darts -= 3;
-  marks -= turnMarks;
-  hits -= turnHits;
-  turns[turnMarks] -= 1;
-
-  const mpr = (marks / darts) * 3 || 0;
-  const hitRate = hits / darts || 0;
-
-  return {
-    darts,
-    marks,
-    hits,
-    turns,
-    mpr,
-    hitRate,
-  };
-};
+import { calculateScore, undoStats } from "./common";
 
 export default (state, action) => {
   if (state.priorTurns.length === 0) {

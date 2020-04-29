@@ -33,7 +33,7 @@ const newScoreObject = () => ({
   marks: [0, 0, 0, 0, 0, 0, 0],
 });
 
-export const initializeCricket = (state) => {
+export const initializeCricket = (state, roomCode) => {
   const legs = state.players.map((_) => 0);
   const stats = state.players.map((_) => ({
     darts: 0,
@@ -50,6 +50,7 @@ export const initializeCricket = (state) => {
     legs,
     stats,
     scores,
+    roomCode,
     isActive: true,
     tx: 0,
     game: "cricket",
@@ -61,6 +62,7 @@ export const initializeCricket = (state) => {
     priorLegs: [],
     currentTurn: [],
     winner: null,
+    title: "",
   };
 };
 

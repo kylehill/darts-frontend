@@ -6,4 +6,4 @@ import "./index.scss";
 const fragment = window.location.pathname;
 const roomCode = fragment.split("/")[2];
 
-ReactDOM.render(<SocketProvider urlFragment={roomCode} />, document.getElementById("root"));
+ReactDOM.render(<SocketProvider urlFragment={roomCode && roomCode.toUpperCase()} />, document.getElementById("root"));
