@@ -2,6 +2,24 @@ import React from "react";
 
 import "./PlayerSelect.scss";
 
+const getColor = (position) => {
+  switch (position) {
+    case 0:
+      return "red";
+    case 1:
+      return "blue";
+    case 2:
+      return "green";
+    case 3:
+      return "orange";
+    case 4:
+      return "purple";
+    case 5:
+    default:
+      return "pink";
+  }
+};
+
 const Player = ({ color, player, position, minPlayers, updatePlayer, removePlayer }) => {
   return (
     <div className={`setup-player setup-player-${color}`}>
@@ -78,7 +96,7 @@ const PlayerSelect = ({ players, setPlayers, doubles, minPlayers, maxPlayers }) 
       {players.map((p, idx) => {
         return (
           <Player
-            color={idx === 0 ? "red" : "blue"}
+            color={getColor(idx)}
             key={idx}
             player={p}
             position={idx}

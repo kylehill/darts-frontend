@@ -50,7 +50,7 @@ const LandingScreen = ({ checkRoom, roomStatus, joinRoom, selectGame }) => {
           <button className="button-cricket" onClick={() => selectGame("cricket")}>
             Cricket
           </button>
-          <button className="button-x01" disabled={true} onClick={() => selectGame("x01")}>
+          <button className="button-x01" onClick={() => selectGame("x01")}>
             X01
           </button>
           <button className="button-clocky" disabled={true} onClick={() => selectGame("clocky")}>
