@@ -1,6 +1,8 @@
 import React from "react";
 import io from "socket.io-client";
 
+import createGameState from "./createGameState";
+
 import App from "../App";
 
 const reducerFn = (state, action) => {
@@ -11,7 +13,7 @@ const reducerFn = (state, action) => {
     case "update_state":
       if (action.data && state.roomCode === action.data.roomCode) {
         if (action.data.state === null) {
-          return { ...state, loading: false };
+          return { ...state, loading: false, roomExists: false };
         }
         return Object.assign({}, state, {
           state: action.data.state,
@@ -50,7 +52,7 @@ const reducerFn = (state, action) => {
   }
 };
 
-const SocketProvider = ({ urlFragment }) => {
+const SocketProvider = ({ hashObject, urlFragment }) => {
   const [appState, dispatch] = React.useReducer(reducerFn, {
     roomCode: null,
     roomStatus: {
@@ -59,6 +61,7 @@ const SocketProvider = ({ urlFragment }) => {
     },
     data: {},
     loading: !!urlFragment,
+    roomExists: true,
   });
 
   const [socket, setSocket] = React.useState(null);
@@ -131,6 +134,17 @@ const SocketProvider = ({ urlFragment }) => {
       joinRoom(urlFragment);
     }
   }, [socket, urlFragment]);
+
+  React.useEffect(() => {
+    if (!socket || !hashObject || appState.roomExists) {
+      return;
+    }
+
+    const initialState = createGameState(urlFragment, hashObject);
+    if (initialState) {
+      createRoom(urlFragment, initialState);
+    }
+  }, [socket, appState.roomExists, hashObject]);
 
   return (
     <>

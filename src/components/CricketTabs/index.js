@@ -24,7 +24,7 @@ const VisibleContent = (props) => {
 };
 
 const CricketTabs = (props) => {
-  const [currentPane, setCurrentPane] = React.useState(2);
+  const [currentPane, setCurrentPane] = React.useState(0);
   const tabTitles = ["Stats", "Log", "Menu"];
 
   return (

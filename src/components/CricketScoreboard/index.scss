@@ -101,7 +101,7 @@ $cricket-active-icon-width: 6%;
 .cricket-name {
   background: transparent;
   border: none;
-  font-size: 34px;
+  font-size: 30px;
   width: 100%;
   font-family: "Source Sans Pro", sans-serif;
 
@@ -110,7 +110,7 @@ $cricket-active-icon-width: 6%;
   }
 
   @media (max-width: $large-breakpoint) {
-    font-size: 26px;
+    font-size: 22px;
   }
 }
 
@@ -171,7 +171,7 @@ $cricket-active-icon-width: 6%;
   height: $cricket-center-height;
   vertical-align: top;
   display: inline-block;
-  font-size: 20px;
+  font-size: 18px;
   color: $background-white;
   text-align: center;
   border-right: solid 1px #666;
@@ -182,7 +182,7 @@ $cricket-active-icon-width: 6%;
   }
 
   @media (max-width: $large-breakpoint) {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -198,4 +198,5 @@ $cricket-active-icon-width: 6%;
 .center-7 {
   width: $cricket-player-width-segment * 7;
   text-align: left;
+  padding-left: 8px;
 }
