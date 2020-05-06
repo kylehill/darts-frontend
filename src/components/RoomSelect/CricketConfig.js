@@ -1,6 +1,8 @@
 import React from "react";
 import ConfigDropdown from "components/ConfigDropdown";
 
+import createCricketState from "lib/createCricketState";
+
 const CricketConfig = ({ variants, setVariant }) => {
   return (
     <div className="setup-config-container">
@@ -28,42 +30,8 @@ const CricketConfig = ({ variants, setVariant }) => {
   );
 };
 
-const newScoreObject = () => ({
-  points: 0,
-  marks: [0, 0, 0, 0, 0, 0, 0],
-});
-
 export const initializeCricket = (state, roomCode) => {
-  const legs = state.players.map((_) => 0);
-  const stats = state.players.map((_) => ({
-    darts: 0,
-    hits: 0,
-    marks: 0,
-    mpr: 0,
-    hitRate: 0,
-    turns: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  }));
-
-  const scores = [newScoreObject(), newScoreObject()];
-
-  return {
-    legs,
-    stats,
-    scores,
-    roomCode,
-    isActive: true,
-    tx: 0,
-    game: "cricket",
-    players: state.players,
-    variants: state.variants,
-    firstThrow: 0,
-    currentThrow: 0,
-    priorTurns: [],
-    priorLegs: [],
-    currentTurn: [],
-    winner: null,
-    title: "",
-  };
+  return createCricketState({ roomCode, players: state.players, variants: state.variants, title: "" });
 };
 
 export default CricketConfig;

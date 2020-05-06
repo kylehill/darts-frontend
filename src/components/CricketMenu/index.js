@@ -62,6 +62,7 @@ const CricketMenu = ({ state, changeFirstThrow, restartMatch, restartLeg, specta
   return (
     <div className="cricket-menu">
       <VariantList variants={state.variants} />
+      <a href="/">Select (or create) a new room</a>
       {!spectating && (
         <DangerOptions
           state={state}
