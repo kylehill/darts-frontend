@@ -36,7 +36,7 @@
   display: inline-block;
 
   &[disabled] {
-    background: $button-next-disbled;
+    background: $button-next-disabled;
     color: #aaa;
   }
 }

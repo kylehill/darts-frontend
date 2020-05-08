@@ -82,12 +82,10 @@ const defaultVariants = {
 const newPlayerStats = () => ({
   all: { darts: 0, points: 0 },
   f9: { darts: 0, points: 0 },
-  scoring: { darts: 0, points: 0 },
   turns: {},
   checkouts: [],
-  checkoutAttempts: {},
-  doubleIn: { attempts: 0, hits: 0 },
-  doubleOut: { attempts: 0, hits: 0 },
+  doubleIn: { misses: 0, hits: 0 },
+  doubleOut: { misses: 0, hits: 0 },
 });
 
 export const initializeX01 = (state, roomCode) => {
@@ -110,26 +108,10 @@ export const initializeX01 = (state, roomCode) => {
     currentThrow: 0,
     priorTurns: [],
     priorLegs: [],
-    currentTurn: [],
-    winner: null,
-    title: "",
-  };
-
-  return {
-    legs,
-    stats,
-    scores,
-    roomCode,
-    isActive: true,
-    tx: 0,
-    game: "cricket",
-    players: state.players,
-    variants: state.variants,
-    firstThrow: 0,
-    currentThrow: 0,
-    priorTurns: [],
-    priorLegs: [],
-    currentTurn: [],
+    currentTurn: {
+      score: "",
+      doubleDart: false,
+    },
     winner: null,
     title: "",
   };

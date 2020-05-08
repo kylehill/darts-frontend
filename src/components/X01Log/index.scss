@@ -1,0 +1,119 @@
+@import "_colors";
+
+.x01-log {
+  padding: 10px;
+  max-height: 422px;
+  overflow-y: scroll;
+  font-size: 22px;
+}
+
+.x01-log-leg {
+  border-top: solid 2px $background-white;
+  padding: 6px 10px;
+  margin: 12px 0;
+  font-size: 20px;
+  position: relative;
+  background: $background-dark;
+}
+
+.x01-log-break {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 3px 6px;
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: $accent-maroon;
+  border: solid 1px $background-white;
+}
+
+.x01-log-scores {
+  text-align: center;
+  font-size: 40px;
+}
+
+.x01-log-turn {
+  border-bottom: solid 1px $background-dark;
+  margin: 6px 0;
+  padding: 6px 20px;
+  background: $background-textured-gray;
+  color: $background-dark-contrast;
+  position: relative;
+}
+
+.x01-log-color {
+  width: 10px;
+  height: calc(100% - 2px);
+  position: absolute;
+  background: $background-dark-contrast;
+  top: 1px;
+  left: 1px;
+
+  &-red {
+    background: linear-gradient($background-white, $team-red 80%);
+  }
+
+  &-blue {
+    background: linear-gradient($background-white, $team-blue 80%);
+  }
+
+  &-green {
+    background: linear-gradient($background-white, $team-green 80%);
+  }
+
+  &-orange {
+    background: linear-gradient($background-white, $team-orange 80%);
+  }
+
+  &-purple {
+    background: linear-gradient($background-white, $team-purple 80%);
+  }
+
+  &-pink {
+    background: linear-gradient($background-white, $team-pink 80%);
+  }
+}
+
+.x01-log-turn-winner {
+  .x01-log-score {
+    background: $background-textured-green;
+    color: white;
+  }
+}
+
+.x01-log-score {
+  font-size: 24px;
+  text-align: center;
+  border: solid 1px white;
+  background: $background-dark-contrast;
+  color: white;
+  width: 100px;
+  margin: 6px 0;
+  margin-right: 24px;
+  padding: 4px 0;
+  display: inline-block;
+  transition: none;
+
+  &-red {
+    background: $accent-maroon;
+  }
+
+  &-purple {
+    background: $accent-purple;
+  }
+
+  &-blue {
+    background: $accent-blue;
+  }
+
+  &-gold {
+    background: $accent-gold;
+    color: $background-dark-contrast;
+  }
+}
+
+.x01-log-target {
+  display: inline-block;
+  font-size: 20px;
+}

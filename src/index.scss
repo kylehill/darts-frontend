@@ -21,6 +21,7 @@ body {
     $background-dark-contrast $stripe-width,
     $background-dark-contrast ($stripe-width * 2)
   );
+  background-attachment: fixed;
 }
 
 button {

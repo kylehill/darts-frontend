@@ -1,6 +1,6 @@
 import React from "react";
 
-import CricketActiveIcon from "./CricketActiveIcon";
+import ActiveIcon from "components/ActiveIcon";
 import CricketPlayer from "./CricketPlayer";
 import CricketCenter from "./CricketCenter";
 
@@ -9,7 +9,7 @@ import "./index.scss";
 const CricketScoreboard = ({ spectating, state, changeName }) => {
   return (
     <div className="cricket-scoreboard">
-      <CricketActiveIcon currentThrow={state.currentThrow} winner={state.winner !== null} />
+      <ActiveIcon currentThrow={state.currentThrow} winner={state.winner !== null} />
       <div className="cricket-content">
         <CricketCenter title={state.title} />
         <CricketPlayer

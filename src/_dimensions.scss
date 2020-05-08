@@ -3,13 +3,7 @@ $large-breakpoint: 767px;
 
 $mobile-landscape: 500px;
 
-$cricket-header: 150px;
-$cricket-header-landscape: 80px;
-$cricket-footer: 80px;
-$cricket-footer-landscape: 60px;
-
-$cricket-markboard: calc(100vh - (#{$cricket-header} + #{$cricket-footer}));
-$cricket-markboard-row: calc(#{$cricket-markboard} / 7);
-
-$cricket-markboard-landscape: calc(100vh - (#{$cricket-header-landscape} + #{$cricket-footer-landscape}));
-$cricket-markboard-row-landscape: calc(#{$cricket-markboard-landscape} / 7);
+$scoreboard-player-height: 50px;
+$scoreboard-center-height: 32px;
+$scoreboard-player-width-segment: 100% / 19;
+$scoreboard-active-icon-width: 6%;

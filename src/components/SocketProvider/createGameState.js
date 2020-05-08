@@ -15,7 +15,6 @@ const createCricket = (urlFragment, names, title) => {
 };
 
 const createGameState = (urlFragment, hashObject) => {
-  console.log("hashObject", hashObject);
   const { game, names, title } = hashObject;
 
   switch (game) {

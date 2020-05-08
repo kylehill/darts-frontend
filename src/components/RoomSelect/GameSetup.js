@@ -57,7 +57,6 @@ const GameSetup = ({ game, checkRoom, roomStatus, clearGame, createRoom }) => {
   });
 
   const setVariant = (key, value) => {
-    console.log(key, value);
     dispatch({ type: "set_variant", key, value });
   };
 
@@ -83,7 +82,11 @@ const GameSetup = ({ game, checkRoom, roomStatus, clearGame, createRoom }) => {
         maxPlayers={maxPlayers}
       />
       <CreateRoom checkRoom={checkRoom} roomStatus={roomStatus} />
-      <button disabled={roomStatus.status !== "available"} className="setup-create" onClick={clickCreateGame}>
+      <button
+        disabled={roomStatus.status !== "available"}
+        className="setup-create"
+        onClick={clickCreateGame}
+      >
         Start Game
       </button>
     </div>

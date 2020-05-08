@@ -1,0 +1,38 @@
+@import "_dimensions";
+
+.x01-spectate-container {
+  margin: 16px 8px;
+}
+
+.x01-scoreboard-container {
+  margin-bottom: 16px;
+}
+
+.x01-actions-container {
+  width: calc(50% - 8px);
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 16px;
+  margin-bottom: 16px;
+
+  @media (max-width: $large-breakpoint) {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+
+.x01-tabs-container {
+  width: calc(50% - 8px);
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 16px;
+
+  @media (max-width: $large-breakpoint) {
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

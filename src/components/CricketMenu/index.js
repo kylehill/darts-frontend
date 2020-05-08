@@ -3,11 +3,9 @@ import React from "react";
 import "./index.scss";
 
 const convert = (text) => {
-  console.log({ text });
   return text
     .split("-")
     .map((word) => {
-      console.log(word);
       return word[0].toUpperCase() + word.split("").slice(1).join("").toLowerCase();
     })
     .join(" ");
@@ -51,9 +49,17 @@ const DangerOptions = ({ state, changeFirstThrow, restartMatch, restartLeg }) =>
         action={() => changeFirstThrow((state.firstThrow + 1) % 2)}
       />
 
-      <DangerOption title="Restart Leg" description="Restarts this leg from the beginning." action={restartLeg} />
+      <DangerOption
+        title="Restart Leg"
+        description="Restarts this leg from the beginning."
+        action={restartLeg}
+      />
 
-      <DangerOption title="Restart Match" description="Restarts this match from the beginning." action={restartMatch} />
+      <DangerOption
+        title="Restart Match"
+        description="Restarts this match from the beginning."
+        action={restartMatch}
+      />
     </div>
   );
 };

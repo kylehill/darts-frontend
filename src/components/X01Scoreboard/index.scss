@@ -1,0 +1,179 @@
+@import "_dimensions";
+@import "_colors";
+
+.x01-scoreboard {
+  position: relative;
+
+  &-players-2 {
+    height: $scoreboard-player-height * 2 + $scoreboard-center-height;
+  }
+
+  &-players-3 {
+    height: $scoreboard-player-height * 3 + $scoreboard-center-height;
+  }
+
+  &-players-4 {
+    height: $scoreboard-player-height * 4 + $scoreboard-center-height;
+  }
+
+  &-players-5 {
+    height: $scoreboard-player-height * 5 + $scoreboard-center-height;
+  }
+
+  &-players-6 {
+    height: $scoreboard-player-height * 6 + $scoreboard-center-height;
+  }
+}
+
+.x01-content {
+  width: 100% - $scoreboard-active-icon-width;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: $background-dark-contrast;
+}
+
+.x01-center {
+  height: $scoreboard-center-height;
+  line-height: $scoreboard-center-height;
+}
+
+.x01-center-cell {
+  height: $scoreboard-center-height;
+  vertical-align: top;
+  display: inline-block;
+  font-size: 18px;
+  color: $background-white;
+  text-align: center;
+  font-weight: 400;
+  border-bottom: solid 2px $background-white;
+
+  &-noborder {
+    border-bottom: none;
+  }
+
+  @media (max-width: $large-breakpoint) {
+    font-size: 14px;
+  }
+}
+
+.center-11 {
+  width: $scoreboard-player-width-segment * 11;
+  text-align: left;
+  padding-left: 8px;
+}
+
+.x01-player {
+  position: relative;
+  height: $scoreboard-player-height;
+  line-height: $scoreboard-player-height;
+  font-size: 34px;
+
+  @media (max-width: $large-breakpoint) {
+    font-size: 26px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 3px;
+    height: calc(100% - 3px);
+    width: 10px;
+    z-index: 1;
+  }
+
+  &:nth-child(2) {
+    &::before {
+      background: linear-gradient($background-white, $team-red 80%);
+    }
+  }
+
+  &:nth-child(3) {
+    &::before {
+      background: linear-gradient($background-white, $team-blue 80%);
+    }
+  }
+
+  &:nth-child(4) {
+    &::before {
+      background: linear-gradient($background-white, $team-green 80%);
+    }
+  }
+
+  &:nth-child(5) {
+    &::before {
+      background: linear-gradient($background-white, $team-orange 80%);
+    }
+  }
+
+  &:nth-child(6) {
+    &::before {
+      background: linear-gradient($background-white, $team-purple 80%);
+    }
+  }
+
+  &:nth-child(7) {
+    &::before {
+      background: linear-gradient($background-white, $team-pink 80%);
+    }
+  }
+}
+
+.x01-cell {
+  display: inline-block;
+  height: $scoreboard-player-height;
+  text-align: center;
+  background: $background-textured-gray;
+  border-right: solid 2px $background-white;
+  border-bottom: solid 2px $background-white;
+  vertical-align: top;
+  width: $scoreboard-player-width-segment * 1;
+}
+
+.x01-nameplate {
+  width: $scoreboard-player-width-segment * 11;
+  display: inline-block;
+  height: 100%;
+  text-align: left;
+  padding-left: 20px;
+  position: relative;
+  border-left: solid 2px $background-white;
+
+  &.x01-winner {
+    background: $background-textured-green;
+    color: white;
+
+    input {
+      color: white;
+    }
+  }
+}
+
+.x01-leader {
+  position: absolute;
+  right: 10px;
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
+  background: #731c17;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.x01-legs {
+  display: inline-block;
+  width: $scoreboard-player-width-segment * 2;
+}
+
+.x01-points {
+  display: inline-block;
+  width: $scoreboard-player-width-segment * 3;
+  margin-right: $scoreboard-player-width-segment;
+}
+
+.x01-last-turn {
+  display: inline-block;
+  border-left: solid 2px $background-white;
+  width: $scoreboard-player-width-segment * 2;
+}
