@@ -112,7 +112,7 @@ const SocketProvider = ({ hashObject, urlFragment }) => {
   };
 
   React.useEffect(() => {
-    const socket = io("http://dartboard-mirror.glitch.me");
+    const socket = io("https://dartboard-mirror.glitch.me");
     socket.on("state", (data) => {
       dispatch({ type: "update_state", data });
     });
