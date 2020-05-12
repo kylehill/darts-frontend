@@ -20,7 +20,9 @@ const cellText = (marks, sector) => {
 };
 
 const CricketName = ({ value, changeName }) => {
-  return <input className="cricket-name" value={value} onChange={(e) => changeName(e.target.value)} />;
+  return (
+    <input className="cricket-name" value={value} onChange={(e) => changeName(e.target.value)} />
+  );
 };
 
 const CricketMarkCell = ({ marks, sector }) => {
@@ -36,10 +38,34 @@ const CricketMarkCell = ({ marks, sector }) => {
   );
 };
 
-const CricketPlayer = ({ changeName, name, marks, points, legs, firstThrow, trailing, winner }) => {
+const cpuIcon = (cpu) => {
+  switch (cpu) {
+    case "easy":
+      return "💻";
+    case "medium":
+      return "🤖";
+    case "hard":
+      return "👾";
+    default:
+      return "";
+  }
+};
+
+const CricketPlayer = ({
+  changeName,
+  cpu,
+  name,
+  marks,
+  points,
+  legs,
+  firstThrow,
+  trailing,
+  winner,
+}) => {
   return (
     <div className="cricket-player">
       <div className={`cricket-cell cricket-nameplate ${winner ? "cricket-winner" : ""}`}>
+        {cpu && <span className="cricket-cpu-icon">{cpuIcon(cpu)}</span>}
         {changeName && <CricketName changeName={changeName} value={name} />}
         {!changeName && name}
         {firstThrow && <div className="cricket-leader" title="Throwing first this leg"></div>}
@@ -48,7 +74,9 @@ const CricketPlayer = ({ changeName, name, marks, points, legs, firstThrow, trai
       {marks.map((marks, idx) => {
         return <CricketMarkCell key={idx} marks={marks} sector={idx} />;
       })}
-      <div className={`cricket-cell cricket-points ${trailing ? "cricket-points-trailing" : ""}`}>{points}</div>
+      <div className={`cricket-cell cricket-points ${trailing ? "cricket-points-trailing" : ""}`}>
+        {points}
+      </div>
     </div>
   );
 };

@@ -61,7 +61,7 @@ export default (state, action) => {
 
   const currentTurn = Array.from(Array(3), (_, idx) => {
     const dart = state.currentTurn[idx];
-    if (dart === undefined) {
+    if (dart === undefined || dart === null) {
       return { miss: true, eM: 0 };
     }
 
@@ -93,14 +93,17 @@ export default (state, action) => {
     return playerStats;
   });
 
+  const currentThrow = (state.currentThrow + 1) % 2;
+
   return {
     ...state,
     tx: state.tx + 1,
     priorTurns: [...state.priorTurns, currentTurn],
     currentTurn: [],
-    currentThrow: (state.currentThrow + 1) % 2,
+    currentThrow,
     scores,
     stats,
     winner: checkWinner(format, scores),
+    cpuControl: !!state.players[currentThrow].cpu,
   };
 };

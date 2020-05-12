@@ -15,6 +15,7 @@ const CricketScoreboard = ({ spectating, state, changeName }) => {
         <CricketPlayer
           changeName={!spectating && ((name) => changeName(name, 0))}
           name={state.players[0].name}
+          cpu={state.players[0].cpu}
           marks={state.scores[0].marks}
           points={state.scores[0].points}
           legs={state.legs[0]}
@@ -25,6 +26,7 @@ const CricketScoreboard = ({ spectating, state, changeName }) => {
         <CricketPlayer
           changeName={!spectating && ((name) => changeName(name, 1))}
           name={state.players[1].name}
+          cpu={state.players[1].cpu}
           marks={state.scores[1].marks}
           points={state.scores[1].points}
           legs={state.legs[1]}

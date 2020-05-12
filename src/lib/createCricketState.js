@@ -35,5 +35,6 @@ export default ({ roomCode, players, variants, title }) => {
     priorLegs: [],
     currentTurn: [],
     winner: null,
+    cpuControl: !!players[0].cpu,
   };
 };

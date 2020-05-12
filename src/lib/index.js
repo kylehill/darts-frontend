@@ -17,3 +17,14 @@ export const updateObject = (baseObject, key, newValue) => {
   newObject[key] = newValue;
   return newObject;
 };
+
+export const timeout = async (ms) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
+export const pick = (array) => {
+  if (!array.length) {
+    return undefined;
+  }
+  return array[Math.floor(Math.random() * array.length)];
+};

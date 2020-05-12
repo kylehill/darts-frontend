@@ -71,11 +71,21 @@
   }
 }
 
+.cricket-cpu-icon {
+  font-size: 26px;
+  background: transparent;
+  margin-right: 4px;
+
+  @media (max-width: $large-breakpoint) {
+    font-size: 18px;
+  }
+}
+
 .cricket-name {
   background: transparent;
   border: none;
   font-size: 30px;
-  width: 100%;
+  width: 80%;
   font-family: "Source Sans Pro", sans-serif;
 
   &:focus {

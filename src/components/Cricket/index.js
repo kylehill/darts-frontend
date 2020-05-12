@@ -7,7 +7,26 @@ import CricketTabs from "components/CricketTabs";
 
 import reducerFn from "./reducer";
 
+import { timeout } from "lib";
+
+import simulateDart from "./simulateDart";
+
 import "./index.scss";
+
+const TIMEOUT_MS = 500;
+
+const simulateTurn = async (state, dispatch) => {
+  for (let i = state.currentTurn.length; i < 3; i++) {
+    await timeout(TIMEOUT_MS);
+    dispatch({
+      type: "click_dart",
+      dart: simulateDart(state),
+    });
+  }
+
+  await timeout(TIMEOUT_MS);
+  dispatch({ type: "click_next" });
+};
 
 const Cricket = (props) => {
   const [state, _wrappedDispatch] = React.useReducer(reducerFn, props.state);
@@ -43,7 +62,7 @@ const Cricket = (props) => {
     return () => window.removeEventListener("keydown", keyListener);
   });
 
-  const dispatch = (action) => {
+  const _controlledDispatch = (action) => {
     if (isSpectating) {
       return;
     }
@@ -57,10 +76,27 @@ const Cricket = (props) => {
     _wrappedDispatch(action);
   };
 
+  const dispatch = (action) => {
+    if (state.cpuControl) {
+      return;
+    }
+
+    _controlledDispatch(action);
+  };
+
+  React.useEffect(() => {
+    if (state.cpuControl) {
+      simulateTurn(state, _controlledDispatch);
+    }
+  }, [state.cpuControl, state.winner, state.currentThrow]);
+
   return (
     <div className="cricket-container">
       <div className="cricket-spectate-container">
-        <SpectateMode spectating={isSpectating} clickChange={() => setIsSpectating(!isSpectating)} />
+        <SpectateMode
+          spectating={isSpectating}
+          clickChange={() => setIsSpectating(!isSpectating)}
+        />
       </div>
       <div className="cricket-scoreboard-container">
         <CricketScoreboard
@@ -82,7 +118,9 @@ const Cricket = (props) => {
         <CricketTabs
           state={state}
           spectating={isSpectating}
-          changeFirstThrow={(firstThrow) => dispatch({ type: "click_change_first_throw", firstThrow })}
+          changeFirstThrow={(firstThrow) =>
+            dispatch({ type: "click_change_first_throw", firstThrow })
+          }
           restartLeg={() => dispatch({ type: "click_restart_leg" })}
           restartMatch={() => dispatch({ type: "click_restart_match" })}
         />

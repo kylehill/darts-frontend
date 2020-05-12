@@ -20,6 +20,57 @@ const getColor = (position) => {
   }
 };
 
+const getCpuText = (player) => {
+  switch (player.cpu) {
+    case "easy":
+      return "💻";
+
+    case "medium":
+      return "🤖";
+
+    case "hard":
+      return "👾";
+
+    case false:
+    default:
+      return "👤";
+  }
+};
+
+const getCpuNextVaue = (player) => {
+  switch (player.cpu) {
+    case "easy":
+      return "medium";
+
+    case "medium":
+      return "hard";
+
+    case "hard":
+      return false;
+
+    case false:
+    default:
+      return "easy";
+  }
+};
+
+const getCpuName = (cpuValue, position) => {
+  switch (cpuValue) {
+    case "easy":
+      return "CPU Easy";
+
+    case "medium":
+      return "CPU Medium";
+
+    case "hard":
+      return "CPU Hard";
+
+    case false:
+    default:
+      return `Player ${position + 1}`;
+  }
+};
+
 const Player = ({ color, player, position, minPlayers, updatePlayer, removePlayer }) => {
   return (
     <div className={`setup-player setup-player-${color}`}>
@@ -30,6 +81,15 @@ const Player = ({ color, player, position, minPlayers, updatePlayer, removePlaye
           updatePlayer(position, { ...player, name: e.target.value });
         }}
       />
+      <button
+        className="setup-player-cpu"
+        onClick={() => {
+          const nextVal = getCpuNextVaue(player);
+          updatePlayer(position, { ...player, cpu: nextVal, name: getCpuName(nextVal, position) });
+        }}
+      >
+        {getCpuText(player)}
+      </button>
       {position >= minPlayers && (
         <button
           className="setup-player-remove"

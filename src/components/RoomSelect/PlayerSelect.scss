@@ -34,18 +34,6 @@
     }
   }
 
-  button {
-    background: transparent;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 12px;
-    border: none;
-    box-shadow: none;
-    color: white;
-    font-size: 18px;
-  }
-
   &-red {
     background: $team-red;
   }
@@ -69,4 +57,30 @@
   &-pink {
     background: $team-pink;
   }
+}
+
+.setup-player-remove {
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  border: none;
+  box-shadow: none;
+  color: white;
+  font-size: 18px;
+}
+
+.setup-player-cpu {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 55%;
+  font-size: 20px;
+  padding-left: 8px;
+  padding-right: 4px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 4px;
+  background: $background-textured-gray;
 }
