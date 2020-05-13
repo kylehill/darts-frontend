@@ -2,6 +2,9 @@ import * as actions from "./actions";
 
 export default (state, action) => {
   switch (action.type) {
+    case "update_state":
+      return action.state;
+
     case "change_score":
       return actions.changeScore(state, action);
 
