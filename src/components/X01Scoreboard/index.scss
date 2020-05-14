@@ -131,6 +131,22 @@
   width: $scoreboard-player-width-segment * 1;
 }
 
+.x01-name {
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  width: 80%;
+  font-family: "Source Sans Pro", sans-serif;
+
+  &:focus {
+    background: white;
+  }
+
+  @media (max-width: $large-breakpoint) {
+    font-size: 22px;
+  }
+}
+
 .x01-nameplate {
   width: $scoreboard-player-width-segment * 11;
   display: inline-block;

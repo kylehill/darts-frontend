@@ -46,7 +46,15 @@ const DoubleButtons = ({ text, currentTurn, clickDouble, showZero }) => {
   );
 };
 
-const X01Actions = ({ spectating, state, changeScore, clickDouble, clickBack, clickNext }) => {
+const X01Actions = ({
+  inputRef,
+  spectating,
+  state,
+  changeScore,
+  clickDouble,
+  clickBack,
+  clickNext,
+}) => {
   const { variants, currentTurn } = state;
   const activeScore = state.scores[state.currentThrow];
   const trackDoubles = variants.trackDoubles === "yes";
@@ -83,7 +91,10 @@ const X01Actions = ({ spectating, state, changeScore, clickDouble, clickBack, cl
           type="number"
           className="x01-action-score"
           value={currentTurn.score}
-          onChange={(e) => changeScore(e.target.value)}
+          ref={inputRef}
+          onChange={(e) => {
+            changeScore(e.target.value);
+          }}
         />
       </div>
       {trackDoubles && (

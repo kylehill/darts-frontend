@@ -1,0 +1,25 @@
+@import "_colors";
+
+.x01-menu {
+  padding: 16px;
+  max-width: 420px;
+  overflow-y: scroll;
+}
+
+.x01-menu-variants {
+  font-size: 20px;
+  border-bottom: solid 2px $background-white;
+}
+
+.x01-menu-variants p {
+  padding-bottom: 12px;
+}
+
+.x01-menu a {
+  margin: 20px 0;
+  display: inline-block;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  border-bottom: solid 1px $text-pink;
+}

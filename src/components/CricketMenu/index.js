@@ -1,15 +1,7 @@
 import React from "react";
+import { fromCamelCase } from "lib";
 
 import "./index.scss";
-
-const convert = (text) => {
-  return text
-    .split("-")
-    .map((word) => {
-      return word[0].toUpperCase() + word.split("").slice(1).join("").toLowerCase();
-    })
-    .join(" ");
-};
 
 const VariantList = ({ variants }) => {
   if (Object.keys(variants).length === 0) {
@@ -21,7 +13,7 @@ const VariantList = ({ variants }) => {
       {Object.entries(variants).map(([key, value]) => {
         return (
           <p>
-            <strong>{convert(key)}:</strong> {convert(value)}
+            <strong>{fromCamelCase(key)}:</strong> {fromCamelCase(value)}
           </p>
         );
       })}

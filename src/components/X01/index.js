@@ -12,6 +12,7 @@ import "./index.scss";
 const X01 = (props) => {
   const [state, _wrappedDispatch] = React.useReducer(reducerFn, props.state);
   const [isSpectating, setIsSpectating] = React.useState(false);
+  const inputElement = React.useRef(null);
 
   React.useEffect(() => {
     props.state && _wrappedDispatch({ type: "update_state", state: props.state });
@@ -29,6 +30,22 @@ const X01 = (props) => {
   React.useEffect(() => {
     const keyListener = (e) => {
       switch (e.code) {
+        case "Digit0":
+        case "Digit1":
+        case "Digit2":
+        case "Digit3":
+        case "Digit4":
+        case "Digit5":
+        case "Digit6":
+        case "Digit7":
+        case "Digit8":
+        case "Digit9":
+          if (document.activeElement !== inputElement.current) {
+            inputElement.current.focus();
+            dispatch({ type: "key_number", digit: e.key });
+          }
+          return;
+
         case "Enter":
           e.preventDefault();
           dispatch({ type: "key_enter" });
@@ -39,9 +56,9 @@ const X01 = (props) => {
       }
     };
 
-    window.addEventListener("keydown", keyListener);
+    window.addEventListener("keyup", keyListener);
 
-    return () => window.removeEventListener("keydown", keyListener);
+    return () => window.removeEventListener("keyup", keyListener);
   });
 
   const dispatch = (action) => {
@@ -67,7 +84,11 @@ const X01 = (props) => {
         />
       </div>
       <div className="x01-scoreboard-container">
-        <X01Scoreboard state={state} />
+        <X01Scoreboard
+          spectating={isSpectating}
+          state={state}
+          changeName={(name, player) => dispatch({ type: "change_name", name, player })}
+        />
       </div>
       <div className="x01-actions-container">
         <X01Actions
@@ -77,6 +98,7 @@ const X01 = (props) => {
           clickDouble={(double) => dispatch({ type: "click_double", double })}
           clickNext={() => dispatch({ type: "click_next" })}
           clickBack={() => dispatch({ type: "click_back" })}
+          inputRef={inputElement}
         />
       </div>
       <div className="x01-tabs-container">

@@ -20,7 +20,7 @@ export default (state, action) => {
     throw: state.currentThrow,
     round: Math.floor(state.priorTurns.length / state.players.length),
     darts: 3,
-    target: activeScore,
+    remaining: [...scores],
     score: turnScore,
     doubling: false,
     missedDoubles: 0,

@@ -6,9 +6,21 @@ import X01Player from "./X01Player";
 
 import "./index.scss";
 
-const X01Scoreboard = ({ state }) => {
+const X01Scoreboard = ({ state, spectating, changeName }) => {
+  const scoreboardRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const keyListener = (e) => e.stopPropagation();
+    scoreboardRef.current && scoreboardRef.current.addEventListener("keyup", keyListener);
+
+    return () => scoreboardRef.current.removeEventListener("keyup", keyListener);
+  }, [scoreboardRef]);
+
   return (
-    <div className={`x01-scoreboard x01-scoreboard-players-${state.players.length}`}>
+    <div
+      ref={scoreboardRef}
+      className={`x01-scoreboard x01-scoreboard-players-${state.players.length}`}
+    >
       <ActiveIcon currentThrow={state.currentThrow} winner={state.winner !== null} />
       <div className="x01-content">
         <X01Center title={state.title} />
@@ -17,6 +29,7 @@ const X01Scoreboard = ({ state }) => {
           return (
             <X01Player
               key={idx}
+              changeName={!spectating && ((name) => changeName(name, idx))}
               name={player.name}
               legs={state.legs[idx]}
               score={state.scores[idx]}

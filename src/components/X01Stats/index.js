@@ -9,6 +9,10 @@ const rate = (numerator, denominator, digits = 2) => {
     return "--";
   }
 
+  if (denominator < 10 && numerator <= denominator) {
+    return `${numerator}/${denominator}`;
+  }
+
   return (numerator / denominator).toFixed(digits);
 };
 

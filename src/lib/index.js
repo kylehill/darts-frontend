@@ -28,3 +28,12 @@ export const pick = (array) => {
   }
   return array[Math.floor(Math.random() * array.length)];
 };
+
+export const fromCamelCase = (text) => {
+  return text
+    .split("-")
+    .map((word) => {
+      return word[0].toUpperCase() + word.split("").slice(1).join("").toLowerCase();
+    })
+    .join(" ");
+};
