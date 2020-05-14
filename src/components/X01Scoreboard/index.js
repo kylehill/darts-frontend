@@ -11,9 +11,10 @@ const X01Scoreboard = ({ state, spectating, changeName }) => {
 
   React.useEffect(() => {
     const keyListener = (e) => e.stopPropagation();
-    scoreboardRef.current && scoreboardRef.current.addEventListener("keyup", keyListener);
+    const ref = scoreboardRef.current;
+    ref && ref.addEventListener("keyup", keyListener);
 
-    return () => scoreboardRef.current.removeEventListener("keyup", keyListener);
+    return () => ref && ref.removeEventListener("keyup", keyListener);
   }, [scoreboardRef]);
 
   return (

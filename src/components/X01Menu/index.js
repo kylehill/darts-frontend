@@ -1,5 +1,4 @@
 import React from "react";
-import { fromCamelCase } from "lib";
 
 import "./index.scss";
 

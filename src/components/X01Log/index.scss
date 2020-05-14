@@ -31,24 +31,24 @@
 .x01-log-turn {
   border-bottom: solid 1px $background-dark;
   margin: 6px 0;
-  padding: 2px;
+  padding: 6px;
   background: $background-textured-gray;
   color: $background-dark-contrast;
   position: relative;
 }
 
 .x01-log-score {
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
   border: solid 1px white;
   background: $background-dark-contrast;
   color: white;
-  width: 100px;
-  margin: 6px 0;
-  margin-right: 24px;
+  width: 60px;
   padding: 4px 0;
-  display: inline-block;
   transition: none;
+  position: absolute;
+  top: 6px;
+  right: 6px;
 
   &-red {
     background: $accent-maroon;
@@ -79,6 +79,7 @@
   color: white;
   font-size: 16px;
   font-weight: 600;
+  margin-top: 12px;
 
   &-red {
     background: $team-red;
