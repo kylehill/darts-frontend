@@ -30,5 +30,6 @@ export default (state, action) => {
     currentTurn: [],
     scores: newScores(),
     winner: null,
+    cpuControl: !!state.players[firstThrow].cpu,
   };
 };

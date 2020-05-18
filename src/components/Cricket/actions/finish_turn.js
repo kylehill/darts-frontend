@@ -94,6 +94,7 @@ export default (state, action) => {
   });
 
   const currentThrow = (state.currentThrow + 1) % 2;
+  const winner = checkWinner(format, scores);
 
   return {
     ...state,
@@ -103,7 +104,7 @@ export default (state, action) => {
     currentThrow,
     scores,
     stats,
-    winner: checkWinner(format, scores),
-    cpuControl: !!state.players[currentThrow].cpu,
+    winner,
+    cpuControl: !!state.players[currentThrow].cpu && winner === null,
   };
 };

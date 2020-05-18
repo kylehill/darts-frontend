@@ -4,7 +4,7 @@ export default (state, action) => {
     tx: state.tx + 1,
     currentTurn: {
       ...state.currentTurn,
-      score: state.currentTurn.score + action.digit,
+      score: Number(state.currentTurn.score + action.digit),
     },
   };
 };

@@ -1,0 +1,13 @@
+@import "_colors";
+@import "_dimensions";
+
+.last-turn {
+  color: white;
+  background: $background-dark-contrast;
+  height: $scoreboard-last-turn-height;
+  line-height: $scoreboard-last-turn-height - 2px;
+  font-size: 18px;
+  padding: 0 8px;
+  border: solid 2px $background-white;
+  border-top: none;
+}

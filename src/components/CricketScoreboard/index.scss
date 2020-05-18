@@ -3,7 +3,7 @@
 
 .cricket-scoreboard {
   position: relative;
-  height: $scoreboard-player-height * 2 + $scoreboard-center-height;
+  height: $scoreboard-player-height * 2 + $scoreboard-center-height + 28px;
 }
 
 .cricket-content {
@@ -34,7 +34,7 @@
     background: linear-gradient($background-white, $team-red 80%);
   }
 
-  &:last-child {
+  &:nth-child(3) {
     &::before {
       background: linear-gradient($background-white, $team-blue 80%);
     }

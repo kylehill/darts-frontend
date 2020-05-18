@@ -19,15 +19,6 @@ const X01Config = ({ variants, setVariant }) => {
             1001: "1001",
           }}
         />
-        {", with the players organized as "}
-        <ConfigDropdown
-          name="teams"
-          value={variants.teams || "singles"}
-          setValue={setVariant}
-          optionsObject={{
-            singles: "Singles",
-          }}
-        />
         .
       </p>
       <p>
@@ -113,6 +104,6 @@ export const initializeX01 = (state, roomCode) => {
       doubleDart: false,
     },
     winner: null,
-    title: "",
+    title: `Room Code: ${roomCode}`,
   };
 };

@@ -23,7 +23,7 @@ export default ({ roomCode, players, variants, title }) => {
     stats,
     scores,
     roomCode,
-    title,
+    title: title || `Room Code: ${roomCode}`,
     isActive: true,
     tx: 0,
     game: "cricket",

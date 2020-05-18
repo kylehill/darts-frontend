@@ -71,7 +71,15 @@ const getCpuName = (cpuValue, position) => {
   }
 };
 
-const Player = ({ color, player, position, minPlayers, updatePlayer, removePlayer }) => {
+const Player = ({
+  color,
+  player,
+  position,
+  minPlayers,
+  updatePlayer,
+  removePlayer,
+  includeCpu,
+}) => {
   return (
     <div className={`setup-player setup-player-${color}`}>
       <input
@@ -81,15 +89,21 @@ const Player = ({ color, player, position, minPlayers, updatePlayer, removePlaye
           updatePlayer(position, { ...player, name: e.target.value });
         }}
       />
-      <button
-        className="setup-player-cpu"
-        onClick={() => {
-          const nextVal = getCpuNextVaue(player);
-          updatePlayer(position, { ...player, cpu: nextVal, name: getCpuName(nextVal, position) });
-        }}
-      >
-        {getCpuText(player)}
-      </button>
+      {includeCpu && (
+        <button
+          className="setup-player-cpu"
+          onClick={() => {
+            const nextVal = getCpuNextVaue(player);
+            updatePlayer(position, {
+              ...player,
+              cpu: nextVal,
+              name: getCpuName(nextVal, position),
+            });
+          }}
+        >
+          {getCpuText(player)}
+        </button>
+      )}
       {position >= minPlayers && (
         <button
           className="setup-player-remove"
@@ -104,7 +118,7 @@ const Player = ({ color, player, position, minPlayers, updatePlayer, removePlaye
   );
 };
 
-const PlayerSelect = ({ players, setPlayers, doubles, minPlayers, maxPlayers }) => {
+const PlayerSelect = ({ players, setPlayers, doubles, minPlayers, maxPlayers, includeCpu }) => {
   const addPlayer = () => {
     if (doubles) {
       setPlayers(
@@ -163,6 +177,7 @@ const PlayerSelect = ({ players, setPlayers, doubles, minPlayers, maxPlayers }) 
             minPlayers={minPlayers}
             updatePlayer={updatePlayer}
             removePlayer={removePlayer}
+            includeCpu={includeCpu}
           />
         );
       })}

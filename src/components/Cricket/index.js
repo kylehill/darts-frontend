@@ -85,7 +85,7 @@ const Cricket = (props) => {
   };
 
   React.useEffect(() => {
-    if (state.cpuControl) {
+    if (state.cpuControl && state.winner === null) {
       simulateTurn(state, _controlledDispatch);
     }
   }, [state.cpuControl, state.winner, state.currentThrow]);

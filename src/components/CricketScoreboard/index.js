@@ -3,6 +3,7 @@ import React from "react";
 import ActiveIcon from "components/ActiveIcon";
 import CricketPlayer from "./CricketPlayer";
 import CricketCenter from "./CricketCenter";
+import LastTurn from "components/LastTurn";
 
 import "./index.scss";
 
@@ -34,6 +35,7 @@ const CricketScoreboard = ({ spectating, state, changeName }) => {
           trailing={state.scores[0].points > state.scores[1].points}
           winner={state.winner === 1}
         />
+        <LastTurn state={state} />
       </div>
     </div>
   );

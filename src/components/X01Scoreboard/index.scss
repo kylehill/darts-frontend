@@ -5,23 +5,23 @@
   position: relative;
 
   &-players-2 {
-    height: $scoreboard-player-height * 2 + $scoreboard-center-height;
+    height: $scoreboard-player-height * 2 + $scoreboard-center-height + $scoreboard-last-turn-height;
   }
 
   &-players-3 {
-    height: $scoreboard-player-height * 3 + $scoreboard-center-height;
+    height: $scoreboard-player-height * 3 + $scoreboard-center-height + $scoreboard-last-turn-height;
   }
 
   &-players-4 {
-    height: $scoreboard-player-height * 4 + $scoreboard-center-height;
+    height: $scoreboard-player-height * 4 + $scoreboard-center-height + $scoreboard-last-turn-height;
   }
 
   &-players-5 {
-    height: $scoreboard-player-height * 5 + $scoreboard-center-height;
+    height: $scoreboard-player-height * 5 + $scoreboard-center-height + $scoreboard-last-turn-height;
   }
 
   &-players-6 {
-    height: $scoreboard-player-height * 6 + $scoreboard-center-height;
+    height: $scoreboard-player-height * 6 + $scoreboard-center-height + $scoreboard-last-turn-height;
   }
 }
 
@@ -57,8 +57,8 @@
   }
 }
 
-.center-11 {
-  width: $scoreboard-player-width-segment * 11;
+.center-13 {
+  width: $scoreboard-player-width-segment * 13;
   text-align: left;
   padding-left: 8px;
 }
@@ -148,7 +148,7 @@
 }
 
 .x01-nameplate {
-  width: $scoreboard-player-width-segment * 11;
+  width: $scoreboard-player-width-segment * 13;
   display: inline-block;
   height: 100%;
   text-align: left;
@@ -179,17 +179,10 @@
 
 .x01-legs {
   display: inline-block;
-  width: $scoreboard-player-width-segment * 2;
+  width: $scoreboard-player-width-segment * 3;
 }
 
 .x01-points {
   display: inline-block;
   width: $scoreboard-player-width-segment * 3;
-  margin-right: $scoreboard-player-width-segment;
-}
-
-.x01-last-turn {
-  display: inline-block;
-  border-left: solid 2px $background-white;
-  width: $scoreboard-player-width-segment * 2;
 }

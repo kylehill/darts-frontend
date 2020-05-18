@@ -14,12 +14,8 @@ const PriorLeg = ({ number, winner, isBreak, checkout }) => {
 };
 
 const scoreColor = (score) => {
-  if (score < 40) {
-    return "red";
-  }
-
   if (score >= 170) {
-    return "gold";
+    return "red";
   }
 
   if (score >= 130) {

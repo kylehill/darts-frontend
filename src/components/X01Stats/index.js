@@ -9,7 +9,7 @@ const rate = (numerator, denominator, digits = 2) => {
     return "--";
   }
 
-  if (denominator < 10 && numerator <= denominator) {
+  if (numerator === 0) {
     return `${numerator}/${denominator}`;
   }
 

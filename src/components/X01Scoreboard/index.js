@@ -3,6 +3,7 @@ import React from "react";
 import ActiveIcon from "components/ActiveIcon";
 import X01Center from "./X01Center";
 import X01Player from "./X01Player";
+import LastTurn from "components/LastTurn";
 
 import "./index.scss";
 
@@ -26,7 +27,6 @@ const X01Scoreboard = ({ state, spectating, changeName }) => {
       <div className="x01-content">
         <X01Center title={state.title} />
         {state.players.map((player, idx) => {
-          const lastTurn = state.priorTurns.filter((turn) => turn.throw === idx).pop();
           return (
             <X01Player
               key={idx}
@@ -36,10 +36,10 @@ const X01Scoreboard = ({ state, spectating, changeName }) => {
               score={state.scores[idx]}
               winner={state.winner === idx}
               firstThrow={state.firstThrow === idx}
-              lastTurn={lastTurn && lastTurn.score}
             />
           );
         })}
+        <LastTurn state={state} />
       </div>
     </div>
   );

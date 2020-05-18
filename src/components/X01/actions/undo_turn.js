@@ -16,7 +16,7 @@ export default (state, action) => {
 
   const currentTurn = {
     score: lastTurn.score.toString(),
-    doubleDart: lastTurn.checkout ? lastTurn.darts : lastTurn.missedDoubles || false,
+    doubleDart: lastTurn.missedDoubles,
   };
 
   const priorTurns = state.priorTurns.slice(0, -1);

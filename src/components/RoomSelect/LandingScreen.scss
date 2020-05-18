@@ -1,16 +1,29 @@
 @import "_colors";
 @import "_dimensions";
 
+p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+a {
+  color: $text-pink;
+}
+
 .landing-container {
   border: solid 3px $accent-orange;
-  padding: 16px;
+  padding: 20px;
   background: white;
 }
 
 .landing-join {
-  height: 100px;
+  height: 160px;
+  border-top: solid 3px $background-dark-contrast;
   border-bottom: solid 3px $background-dark-contrast;
   margin-bottom: 16px;
+  margin-top: 32px;
+  padding-top: 16px;
 
   input {
     font-size: 24px;
@@ -43,9 +56,14 @@
   font-weight: 600;
 }
 
-.landing-create {
+.landing-create,
+.landing-join {
   font-size: 18px;
   font-weight: 600;
+}
+
+.landing-join-controls {
+  margin-top: 16px;
 }
 
 .landing-create-buttons {

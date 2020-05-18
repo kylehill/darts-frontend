@@ -41,15 +41,9 @@ export default (state, action) => {
     }
 
     if (variants.end === "double") {
-      if (activeScore - turnScore <= 50 && activeScore !== turnScore) {
+      if (activeScore - turnScore <= 50) {
         currentTurn.doubling = "out";
         currentTurn.missedDoubles = state.currentTurn.doubleDart;
-      }
-
-      if (activeScore === turnScore) {
-        currentTurn.doubling = "out";
-        currentTurn.missedDoubles = (state.currentTurn.doubleDart || 1) - 1;
-        currentTurn.darts = state.currentTurn.doubleDart || 1;
       }
     }
   }

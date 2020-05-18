@@ -43,9 +43,9 @@ const CreateRoom = ({ checkRoom, roomStatus }) => {
                   return "Y";
                 case "O":
                   return "Z";
+                default:
+                  return c;
               }
-
-              return c;
             })
             .join("");
 
@@ -55,7 +55,9 @@ const CreateRoom = ({ checkRoom, roomStatus }) => {
       >
         Random Code
       </button>
-      {createRoomErrorText(status) && <div className="error-text">{createRoomErrorText(status)}</div>}
+      {createRoomErrorText(status) && (
+        <div className="error-text">{createRoomErrorText(status)}</div>
+      )}
     </div>
   );
 };

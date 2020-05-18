@@ -76,38 +76,51 @@
 .x01-log-remaining {
   flex-basis: 100%;
   text-align: center;
-  color: white;
+  color: $background-dark;
+  background: $background-white;
   font-size: 16px;
   font-weight: 600;
   margin-top: 12px;
 
   &-red {
-    background: $team-red;
     border: solid 2px $team-red;
   }
   &-blue {
-    background: $team-blue;
     border: solid 2px $team-blue;
   }
   &-green {
-    background: $team-green;
     border: solid 2px $team-green;
   }
   &-orange {
-    background: $team-orange;
     border: solid 2px $team-orange;
   }
   &-purple {
-    background: $team-purple;
     border: solid 2px $team-purple;
   }
   &-pink {
-    background: $team-pink;
     border: solid 2px $team-pink;
   }
 
   &-active {
-    color: $background-dark;
-    background: $background-white;
+    color: white;
+
+    &.x01-log-remaining-red {
+      background: $team-red;
+    }
+    &.x01-log-remaining-blue {
+      background: $team-blue;
+    }
+    &.x01-log-remaining-green {
+      background: $team-green;
+    }
+    &.x01-log-remaining-orange {
+      background: $team-orange;
+    }
+    &.x01-log-remaining-purple {
+      background: $team-purple;
+    }
+    &.x01-log-remaining-pink {
+      background: $team-pink;
+    }
   }
 }

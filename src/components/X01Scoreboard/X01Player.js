@@ -4,7 +4,7 @@ const X01Name = ({ value, changeName }) => {
   return <input className="x01-name" value={value} onChange={(e) => changeName(e.target.value)} />;
 };
 
-const X01Player = ({ name, legs, score, winner, firstThrow, lastTurn, changeName }) => {
+const X01Player = ({ name, legs, score, winner, firstThrow, changeName }) => {
   return (
     <div className="x01-player">
       <div className={`x01-cell x01-nameplate ${winner ? "x01-winner" : ""}`}>
@@ -14,7 +14,6 @@ const X01Player = ({ name, legs, score, winner, firstThrow, lastTurn, changeName
       </div>
       <div className="x01-cell x01-legs">{legs}</div>
       <div className="x01-cell x01-points">{score}</div>
-      <div className="x01-cell x01-last-turn">{lastTurn}</div>
     </div>
   );
 };

@@ -16,22 +16,18 @@ const CricketConfig = ({ variants, setVariant }) => {
           "no-points": "Cricket, No Points",
         }}
       />
-      {", with the players organized as "}
-      <ConfigDropdown
-        name="teams"
-        value={variants.teams || "singles"}
-        setValue={setVariant}
-        optionsObject={{
-          singles: "Singles",
-        }}
-      />
       .
     </div>
   );
 };
 
 export const initializeCricket = (state, roomCode) => {
-  return createCricketState({ roomCode, players: state.players, variants: state.variants, title: "" });
+  return createCricketState({
+    roomCode,
+    players: state.players,
+    variants: state.variants,
+    title: "",
+  });
 };
 
 export default CricketConfig;

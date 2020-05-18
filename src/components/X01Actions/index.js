@@ -88,7 +88,7 @@ const X01Actions = ({
       )}
       <div className="x01-action-score-container">
         <input
-          type="number"
+          type="text"
           className="x01-action-score"
           value={currentTurn.score}
           ref={inputRef}
@@ -107,14 +107,7 @@ const X01Actions = ({
               text={`Which dart did ${state.players[state.currentThrow].name} double in with?`}
             />
           )}
-          {doublingOut && (
-            <DoubleButtons
-              clickDouble={clickDouble}
-              currentTurn={currentTurn}
-              text={`Which dart did ${state.players[state.currentThrow].name} check out with?`}
-            />
-          )}
-          {missedDoubles && !doublingOut && (
+          {missedDoubles && (
             <DoubleButtons
               clickDouble={clickDouble}
               currentTurn={currentTurn}

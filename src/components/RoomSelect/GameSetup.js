@@ -80,6 +80,7 @@ const GameSetup = ({ game, checkRoom, roomStatus, clearGame, createRoom }) => {
         setPlayers={setPlayers}
         minPlayers={minPlayers}
         maxPlayers={maxPlayers}
+        includeCpu={game === "cricket"}
       />
       <CreateRoom checkRoom={checkRoom} roomStatus={roomStatus} />
       <button
