@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import SocketProvider from "./components/SocketProvider";
 import "./index.scss";
 
-const fragment = window.location.pathname;
-const roomCode = fragment.split("/")[2];
+const urlFragment = window.location.pathname.split("/").filter((a) => a);
 const hash = window.location.hash.split("#")[1];
 let hashObject = null;
 if (hash) {
@@ -23,6 +22,6 @@ if (hash) {
 }
 
 ReactDOM.render(
-  <SocketProvider hashObject={hashObject} urlFragment={roomCode && roomCode.toUpperCase()} />,
+  <SocketProvider hashObject={hashObject} urlFragment={urlFragment} />,
   document.getElementById("root")
 );

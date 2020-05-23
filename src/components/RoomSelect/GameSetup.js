@@ -65,8 +65,8 @@ const GameSetup = ({ game, checkRoom, roomStatus, clearGame, createRoom }) => {
   };
 
   const clickCreateGame = () => {
-    const state = initializeState(game, setupState, roomStatus.checking);
-    createRoom(roomStatus.checking, state);
+    const state = initializeState(game, setupState, roomStatus.shortCode);
+    createRoom(state);
   };
 
   const maxPlayers = game === "cricket" ? 2 : 6;
@@ -84,7 +84,7 @@ const GameSetup = ({ game, checkRoom, roomStatus, clearGame, createRoom }) => {
       />
       <CreateRoom checkRoom={checkRoom} roomStatus={roomStatus} />
       <button
-        disabled={roomStatus.status !== "available"}
+        disabled={!roomStatus.shortCode || !!roomStatus.publicKey}
         className="setup-create"
         onClick={clickCreateGame}
       >

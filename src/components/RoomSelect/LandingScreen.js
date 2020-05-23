@@ -2,20 +2,16 @@ import React from "react";
 
 import "./LandingScreen.scss";
 
-const joinRoomErrorText = (status) => {
-  switch (status) {
-    case "archived":
-      return "This room code is expired.";
-    case "available":
-      return "This room code doesn't exist.";
-    default:
-      return null;
+const joinRoomErrorText = ({ shortCode, publicKey }) => {
+  if (shortCode && !publicKey) {
+    return "This room code doesn't exist. (Codes expire after 24 hours.)";
   }
+
+  return null;
 };
 
 const LandingScreen = ({ checkRoom, roomStatus, joinRoom, selectGame }) => {
   const [roomCode, setRoomCode] = React.useState("");
-  const { checking, status } = roomStatus;
 
   return (
     <div className="landing-container">
@@ -59,19 +55,19 @@ const LandingScreen = ({ checkRoom, roomStatus, joinRoom, selectGame }) => {
             }}
           />
           <button
-            disabled={status !== "active"}
+            disabled={!roomStatus.publicKey}
             onClick={() => {
-              if (checking !== roomCode || status !== "active") {
+              if (!roomStatus.publicKey) {
                 return;
               }
 
-              joinRoom(roomCode);
+              joinRoom();
             }}
           >
             Join Room
           </button>
-          {joinRoomErrorText(status) && (
-            <div className="error-text">{joinRoomErrorText(status)}</div>
+          {joinRoomErrorText(roomStatus) && (
+            <div className="error-text">{joinRoomErrorText(roomStatus)}</div>
           )}
         </div>
       </div>

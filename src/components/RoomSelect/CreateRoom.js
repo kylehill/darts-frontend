@@ -2,19 +2,16 @@ import React from "react";
 
 import "./CreateRoom.scss";
 
-const createRoomErrorText = (status) => {
-  switch (status) {
-    case "archived":
-    case "active":
-      return "This room code is unavailable.";
-    default:
-      return null;
+const createRoomErrorText = ({ shortCode, publicKey }) => {
+  if (shortCode && publicKey) {
+    return "This room code is in use.";
   }
+
+  return null;
 };
 
 const CreateRoom = ({ checkRoom, roomStatus }) => {
   const [roomCode, setRoomCode] = React.useState("");
-  const { status } = roomStatus;
 
   return (
     <div className="setup-room">
@@ -55,8 +52,8 @@ const CreateRoom = ({ checkRoom, roomStatus }) => {
       >
         Random Code
       </button>
-      {createRoomErrorText(status) && (
-        <div className="error-text">{createRoomErrorText(status)}</div>
+      {createRoomErrorText(roomStatus) && (
+        <div className="error-text">{createRoomErrorText(roomStatus)}</div>
       )}
     </div>
   );
